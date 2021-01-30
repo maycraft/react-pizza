@@ -1,0 +1,43 @@
+@import "fonts";
+@import "variables";
+@import "libs/normalize";
+@import "components/all";
+
+html, body {
+    font-family: $font-stack;
+    font-size: 16px;
+    background: $background;
+}
+
+.wrapper{
+    width: calc(100vw - 100px);
+    max-width: 1400px;
+    // margin: 3.13rem auto;
+    margin: 3.5vmax auto;
+    background: $white;
+    // padding: 53px 50px;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.03);
+    border-radius: 10px;
+    position: relative;
+}
+
+.container {
+    margin: 0 5vmax;
+    display: flex;
+    justify-content: space-between;
+}
+
+.content {
+    padding: 2.8vmax 0;
+}
+
+.nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.hide {
+    display: none !important;
+}
+

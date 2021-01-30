@@ -1,0 +1,175 @@
+@import "../variables";
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    align-items: center;
+    border-radius: 30px;
+    font-size: 1rem;
+    line-height: 19px;
+    font-weight: bold;
+    cursor: pointer;
+    background: $orange;
+    border: 1.5px solid transparent;
+    
+    &:hover {
+        transition: 0.3s background;
+        background: darken( $orange, 8% );
+    }
+
+    &:hover span {
+        color: $white;
+        transition: 0.3s color;
+    }
+    
+    &:active {
+        transform: translateY( 2px );
+        background: darken($orange, 11%);
+    }
+    &--cart {
+        padding: 12px 25px;
+        display: flex;
+        align-items: center;
+        
+        span {
+            color: $white;
+            line-height: 19px;
+            font-size: 1rem;        
+        }
+    
+        svg {
+            margin-right: 8px;
+        }
+    
+        .delimiter {
+            width: 1px;
+            background: rgba(255, 255, 255, 0.25);
+            margin: 0 13px;
+            height: 25px;
+        }
+    }
+
+    &--outline {
+        border-color: $orange;
+        background-color: $white; 
+
+        span {
+            color: $orange;
+            vertical-align: middle;    
+        }
+    }
+
+    &--circle {
+        width: 2vmax;
+        height: 2vmax;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        background: $white;
+        padding: 0;
+
+        &:hover svg path {
+            fill: $white;
+        }
+    }
+
+    &--increase, &--decrease {
+        border-color: $orange;
+    }
+
+    &--delete {
+        border-color: #D7D7D7;
+
+        svg {
+            transform: rotate(45deg);
+        }
+
+        &:hover {
+            border-color: transparent;
+            background: $light-black;
+        }
+    }
+    
+    &--add {
+        transition: 0.2s background;
+
+        svg {
+            margin-right: 2px;
+            vertical-align: middle;
+        }
+    
+        .amount {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: $orange;
+            color: $white;
+            border-radius: 50%;
+            font-size: 13px;
+            width: 22px;
+            height: 22px;
+            transition: 0.2s background;
+        }
+    
+        &:hover {
+            background: $orange;
+            color: $white;
+        }
+    
+        &:hover .amount {
+            background: $white;
+            color: $orange;
+        }
+    
+        &:hover svg path{
+            fill: $white;
+        }
+    
+        &:active {
+            transform: translateY( 1px );
+            background: darken($orange, 10%);
+        }
+    
+    
+    }
+
+    &--buy {
+        padding: 1.3vmax 2vmax;
+        color: $white;
+    }
+
+    &--prev {
+        background: $white;
+        border-color: #CACACA;
+        padding: 0;
+        
+        a {
+            display: block;
+            padding: 1.3vmax 1.6vmax;
+        }
+
+        span {
+            margin-left: 6px;
+            color: #CACACA;
+        }
+
+        &:hover {
+            background: $light-black;
+        }
+
+    }
+
+    &--back {
+        background: $light-black;
+        color: $white;
+        padding: 10px 25px;
+
+        &:hover {
+            background: lighten($light-black, 10%);
+        }
+    }
+}
+
+

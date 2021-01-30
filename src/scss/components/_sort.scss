@@ -1,0 +1,59 @@
+@import "../variables";
+
+.sort {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    &__chosen {
+        color: $orange;
+        border-bottom: 1px dashed $orange;
+        margin-left: 8px;
+        font-weight: normal;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+    p {
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 17px;
+        color: #2C2C2C;
+        letter-spacing: 0.015em;
+
+        svg {
+            margin-right: 7px;
+        }
+    }
+
+    &__popup {
+        position: absolute;
+        // top: 45px;
+        top: 3.2vmax;
+        right: 0;
+        background: $white;
+        color: #000000;
+        font-size: 14px;
+        line-height: 17px;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+        border-radius: 0 0 0 10px;
+        padding: 15px 0 10px;
+
+        li {
+            padding: 10px 25px 10px 15px;
+            font-size: 1rem;
+            cursor: pointer;
+            
+            &.active{
+                color: $orange;
+                font-weight: bold;
+                background: rgba(254, 95, 30, 0.05);
+            }
+            
+            &:hover {
+                background: rgba(254, 95, 30, 0.05);
+            }
+        }
+    }
+}
+

@@ -1,0 +1,42 @@
+@import "../variables";
+
+.nav {
+    // padding-bottom: 2rem;
+    padding-bottom: 2.3vmax;
+}
+
+.categories {
+    display: flex;
+    justify-content: space-between;
+    max-width: 54vmax;
+
+    li {
+        font-size: 1rem;
+        line-height: 1.2rem;
+        text-align: center;
+        color: #2C2C2C;
+        font-weight: bold;
+        letter-spacing: 0.015em;
+        // padding: 15px 30px;
+        padding: 1.1vmax 2vmax;
+        border-radius: 30px;
+        cursor: pointer;
+        margin-right: 9px;
+
+        &:hover {
+            background: $light-gray;
+        }
+        
+        &:active {
+            background: lighten($light-black, 77%);
+        }
+        
+        &.active {
+            background: $light-black;
+            cursor: default;
+            color: $white;
+        }
+    }
+
+
+}
