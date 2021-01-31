@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Categories = () => {
+const Categories =  React.memo( () => {
 
     
     const categories = ['Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые'];
@@ -21,6 +21,6 @@ const Categories = () => {
             )}
         </ul>
     )
-}
+});
 
 export default Categories;
