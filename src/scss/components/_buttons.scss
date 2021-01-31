@@ -27,9 +27,13 @@
         background: darken($orange, 11%);
     }
     &--cart {
-        padding: 12px 25px;
-        display: flex;
-        align-items: center;
+        padding: 0;
+        
+        a {
+            padding: 12px 25px;
+            display: flex;
+            align-items: center;
+        }
         
         span {
             color: $white;
