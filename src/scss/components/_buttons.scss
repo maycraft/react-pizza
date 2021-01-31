@@ -97,7 +97,7 @@
     }
     
     &--add {
-        transition: 0.2s background;
+        transition: 0.3s background;
 
         svg {
             margin-right: 2px;
@@ -114,7 +114,8 @@
             font-size: 13px;
             width: 22px;
             height: 22px;
-            transition: 0.2s background;
+            transition: 0.3s background;
+            margin-left: 8px;
         }
     
         &:hover {
