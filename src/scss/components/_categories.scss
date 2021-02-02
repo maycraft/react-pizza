@@ -8,7 +8,8 @@
 .categories {
     display: flex;
     justify-content: space-between;
-    max-width: 54vmax;
+    // max-width: 54vmax;
+    max-width: 828px;
 
     li {
         font-size: 1rem;
@@ -21,7 +22,11 @@
         padding: 1.1vmax 2vmax;
         border-radius: 30px;
         cursor: pointer;
-        margin-right: 9px;
+        margin-left: 9px;
+
+        &:first-child {
+            margin-left: 0;
+        }
 
         &:hover {
             background: $light-gray;
@@ -38,6 +43,5 @@
             transition: 0.3s all;
         }
     }
-
 
 }

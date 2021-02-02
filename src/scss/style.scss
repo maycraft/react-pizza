@@ -9,11 +9,15 @@ html, body {
     background: $background;
 }
 
+body {
+    padding: 2.8vmax 0;
+}
+
 .wrapper{
     width: calc(100vw - 100px);
     max-width: 1400px;
     // margin: 3.13rem auto;
-    margin: 3.5vmax auto;
+    margin: 0 auto;
     background: $white;
     // padding: 53px 50px;
     box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.03);
@@ -34,6 +38,7 @@ html, body {
 .nav {
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
