@@ -9,7 +9,7 @@ function App() {
             <div className="container">
               <nav className="nav">
                 <Categories/>
-                <Sort/>
+                <Sort items={ ['популярности', 'по цене', 'по алфавиту'] }/>
               </nav>
             </div>
             <div className="pizzas">
