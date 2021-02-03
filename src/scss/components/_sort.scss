@@ -23,6 +23,11 @@
 
         svg {
             margin-right: 7px;
+            transform: rotate(180deg);
+            
+            &.rotated {
+                transform: rotate(0deg);
+            }
         }
     }
 
