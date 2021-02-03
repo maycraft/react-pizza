@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import { Button } from '..';
 import logo from '../../assets/img/pizza-logo.svg';
 
@@ -17,7 +17,9 @@ const Header = () => {
                     </Link>
                 </div>
                 <div className="header__cart">
-                    <Button/>
+                    <Route exact path="/">
+                        <Button/>
+                    </Route>
                 </div>
             </div>
         </header>
