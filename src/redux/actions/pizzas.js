@@ -7,7 +7,7 @@ export const setPizzasAC = (items) => {
     }
 }
 
-export const setAllPizzas = (dispatch) => {
+export const fetchPizzas = () => (dispatch) => {
     axios.get('http://localhost:3001/pizzas')
     .then( response => {
         dispatch( setPizzasAC(response.data) );
