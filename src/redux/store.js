@@ -1,6 +1,6 @@
 
 
-import { combineReducers, createStore } from 'redux';
+import { combineReducers, createStore, compose, applyMiddleware } from 'redux';
 import {pizzas as pizzasReducer, filters as filtersReducer} from './reducers';
 
 const rootReducer = combineReducers({
@@ -8,7 +8,7 @@ const rootReducer = combineReducers({
     filters: filtersReducer     
 })
 
-const store = createStore(rootReducer);
-window.store = store;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware() ));
 
 export default store;
