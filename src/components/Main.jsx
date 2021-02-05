@@ -1,8 +1,8 @@
-import axios from 'axios'
-import React from 'react'
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Categories, PizzaItem, Sort } from '.'
-import { setCategoryAC, setPizzasAC } from '../redux/actions';
+import {setAllPizzas} from '../redux/actions/pizzas';
+import {setCategoryAC, setSortByAC} from '../redux/actions/filters';
 
 
 const categories = ['Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые'];
@@ -18,14 +18,15 @@ const Main = () => {
     const pizzas = useSelector( ({pizzas}) => pizzas.items );
 
     React.useEffect(() => {
-        axios.get('http://localhost:3001/pizzas')
-            .then( response => {
-                dispatch( setPizzasAC(response.data) );
-            })
+        dispatch(setAllPizzas);
     }, [dispatch]);
 
     const handleSelectItem = idx => {
         dispatch( setCategoryAC(idx) );
+    }
+
+    const handleSortBy = name => {
+        dispatch( setSortByAC(name) );
     }
 
     return (
@@ -33,7 +34,7 @@ const Main = () => {
             <div className="container">
                 <nav className="nav">
                     <Categories items={categories} onSelectItem={handleSelectItem} />
-                    <Sort items={ sortItems }/>
+                    <Sort items={ sortItems } onSortBy={handleSortBy}/>
                 </nav>
             </div>
             <div className="pizzas">
