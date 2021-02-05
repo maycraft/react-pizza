@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import PropTypes from 'prop-types'
 
 const Categories =  React.memo( ({items, onSelectItem}) => {
 
@@ -21,5 +22,10 @@ const Categories =  React.memo( ({items, onSelectItem}) => {
         </ul>
     )
 });
+
+Categories.propTypes = {
+    items: PropTypes.arrayOf(PropTypes.string.isRequired),
+    onSelectItem: PropTypes.func.isRequired
+}
 
 export default Categories;
