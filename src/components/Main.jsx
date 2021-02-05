@@ -1,17 +1,20 @@
 import axios from 'axios'
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { Categories, PizzaItem, Sort } from '.'
+import { setPizzas } from '../redux/actions/setPizzas';
 
 const Main = () => {
     
-    const [ pizzas, setPizzas ] = React.useState([]);
+    const dispatch = useDispatch();
+    const pizzas = useSelector( ({pizzas}) => pizzas.items );
 
     React.useEffect(() => {
         axios.get('http://localhost:3001/pizzas')
             .then( response => {
-                setPizzas(response.data);
+                dispatch( setPizzas(response.data) );
             })
-    }, []);
+    }, [dispatch]);
 
     return (
         <div className="content">
