@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Categories, PizzaItem, Sort } from '.'
-import {setAllPizzas} from '../redux/actions/pizzas';
+import {fetchPizzas} from '../redux/actions/pizzas';
 import {setCategoryAC, setSortByAC} from '../redux/actions/filters';
 
 
@@ -18,8 +18,10 @@ const Main = () => {
     const pizzas = useSelector( ({pizzas}) => pizzas.items );
 
     React.useEffect(() => {
-        dispatch(setAllPizzas);
-    }, [dispatch]);
+        if(pizzas.length === 0){
+            dispatch(fetchPizzas());
+        }
+    }, [dispatch, pizzas.length]);
 
     const handleSelectItem = idx => {
         dispatch( setCategoryAC(idx) );
