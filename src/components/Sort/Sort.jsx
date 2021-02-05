@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 
-const Sort = ({items}) => {
+const Sort = ({items, onSortBy}) => {
     //состояние скрывать/показывать Popup
     const [isVisiblePopup, setIsVisiblePopup] = React.useState(false);
     const [selectItem, setSelectItem] = React.useState(0); 
@@ -20,6 +20,7 @@ const Sort = ({items}) => {
     const onSelectItem = idx => {
         setSelectItem(idx);
         setIsVisiblePopup(false);
+        onSortBy(items[idx].type);
     }
     
     const togglePopup = () => {
