@@ -1,2 +1,8 @@
-export {default as pizzas} from './pizzas'; 
-export {default as filters} from './filters'; 
+import { combineReducers } from 'redux';
+
+import filters from './filters';
+import pizzas from './pizzas'
+
+const rootReducer = combineReducers({ pizzas, filters });
+
+export default rootReducer;
