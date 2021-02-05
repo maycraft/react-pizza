@@ -6,6 +6,11 @@ import { setCategoryAC, setPizzasAC } from '../redux/actions';
 
 
 const categories = ['Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые'];
+const sortItems = [
+    {name: 'популярности', type: 'popular'},
+    {name: 'по цене', type: 'price'}, 
+    {name: 'по алфавиту', type: 'alphabet'}
+];
 
 const Main = () => {
     
@@ -28,7 +33,7 @@ const Main = () => {
             <div className="container">
                 <nav className="nav">
                     <Categories items={categories} onSelectItem={handleSelectItem} />
-                    <Sort items={ ['популярности', 'по цене', 'по алфавиту'] }/>
+                    <Sort items={ sortItems }/>
                 </nav>
             </div>
             <div className="pizzas">
