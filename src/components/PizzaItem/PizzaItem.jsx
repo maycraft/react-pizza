@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
-const PizzaItem = ({imageUrl, name, price, sizes, types}) => {
+const PizzaItem = React.memo(({imageUrl, name, price, sizes, types}) => {
 
     const [activeSize, setActiveSize] = React.useState(0);
 
@@ -12,7 +12,7 @@ const PizzaItem = ({imageUrl, name, price, sizes, types}) => {
 
     return (
         <div className="item">
-            <img src={imageUrl} alt={name} />
+            <img src={imageUrl} alt={name} className="flexible-image" />
             <p className="item__name">{name}</p>
             <div className="item__properties">
                 <div className="item__types">
@@ -41,6 +41,8 @@ const PizzaItem = ({imageUrl, name, price, sizes, types}) => {
         </div>
     )
 }
+
+);
 
 PizzaItem.prototype = {
     imageUrl: PropTypes.imageUrl,
