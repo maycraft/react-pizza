@@ -1,4 +1,4 @@
-export const setCategoryAC = idx => {
+export const setCategoryIndexAC = idx => {
     return {
         type: 'SET_CATEGORY',
         payload: idx

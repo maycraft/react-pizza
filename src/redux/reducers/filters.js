@@ -1,5 +1,5 @@
 const initialState = {
-    category: null,
+    categoryIndex: null,
     sortBy: 'popular',
 }
 
@@ -8,7 +8,7 @@ const filters = ( state = initialState, action ) => {
         case 'SET_CATEGORY':
             return {
                 ...state,
-                category: action.payload
+                categoryIndex: action.payload
             }
         case 'SET_SORT_BY':
             return {
