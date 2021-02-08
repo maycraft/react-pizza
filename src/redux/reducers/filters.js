@@ -1,6 +1,6 @@
 const initialState = {
     categoryIndex: null,
-    sortBy: 'popular',
+    indexSortBy: 0,
 }
 
 const filters = ( state = initialState, action ) => {
@@ -10,10 +10,10 @@ const filters = ( state = initialState, action ) => {
                 ...state,
                 categoryIndex: action.payload
             }
-        case 'SET_SORT_BY':
+        case 'SET_INDEX_SORT_BY':
             return {
                 ...state,
-                sortBy: action.payload
+                indexSortBy: action.payload
             }
     
         default:

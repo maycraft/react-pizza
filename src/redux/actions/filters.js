@@ -5,9 +5,9 @@ export const setCategoryIndexAC = idx => {
     }
 }
 
-export const setSortByAC = name => {
+export const setIndexSortByAC = idx => {
     return {
-        type: 'SET_SORT_BY',
-        payload: name
+        type: 'SET_INDEX_SORT_BY',
+        payload: idx
     }
 }

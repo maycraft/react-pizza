@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
-const PizzaItem = React.memo(({imageUrl, name, price, sizes, types}) => {
+const PizzaItem = React.memo(({imageUrl, title, price, sizes, types}) => {
 
     const [activeSize, setActiveSize] = React.useState(0);
 
@@ -12,8 +12,8 @@ const PizzaItem = React.memo(({imageUrl, name, price, sizes, types}) => {
 
     return (
         <div className="item">
-            <img src={imageUrl} alt={name} className="flexible-image" />
-            <p className="item__name">{name}</p>
+            <img src={imageUrl} alt={title} className="flexible-image" />
+            <p className="item__name">{title}</p>
             <div className="item__properties">
                 <div className="item__types">
                     <div className="item__type active">тонкое</div>
