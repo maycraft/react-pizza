@@ -1,4 +1,5 @@
-import axios from 'axios';
+import API from "../dal/api";
+
 
 export const setPizzasAC = (items) => {
     return {
@@ -7,9 +8,9 @@ export const setPizzasAC = (items) => {
     }
 }
 
-export const fetchPizzas = () => (dispatch) => {
-    axios.get('http://localhost:3001/pizzas')
-    .then( response => {
+
+export const fetchPizzas = () => (dispatch) => {    
+    API.fetchPizzas().then( response => {
         dispatch( setPizzasAC(response.data) );
     })
 }
