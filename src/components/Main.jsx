@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Categories, Sort } from '.'
-import {fetchPizzas} from '../redux/actions/pizzas';
+import {fetchPizzas, setIsLoadedAC} from '../redux/actions/pizzas';
 import {setCategoryIndexAC, setSortByAC} from '../redux/actions/filters';
 import {LoaderItem, PizzaItem} from './PizzaItem/';
 
@@ -17,10 +17,12 @@ const Main = () => {
     
     const dispatch = useDispatch();
     const pizzas = useSelector( ({pizzas}) => pizzas.items );
+    const isLoaded = useSelector( ({pizzas}) => pizzas.isLoaded );
     const categoryIndex = useSelector( ({filters}) => filters.categoryIndex );
     const sortBy = useSelector( ({filters}) => filters.sortBy );
 
     React.useEffect(() => {
+        dispatch( setIsLoadedAC(false) );
         dispatch(fetchPizzas());
     }, [dispatch, categoryIndex]);
 
@@ -44,10 +46,9 @@ const Main = () => {
                 <h1>Все пиццы</h1>
                 <div className="pizza__items">
                     {
-                        pizzas.map( item => {
-                            return <PizzaItem key={ item.id } {...item}/>
-                        })
-                        // Array(12).fill(0).map( item => ( <LoaderItem/> ) )
+                        isLoaded
+                        ? pizzas.map( item => (<PizzaItem key={ item.id } {...item}/>) )
+                        : Array(12).fill(0).map( (item, idx) => ( <LoaderItem key={idx}/> ) )
                     }
                     
                 </div>
