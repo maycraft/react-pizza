@@ -1,8 +1,9 @@
 import axios from 'axios';
 
 const API = {
-    fetchPizzas: () => {
-        return axios.get('http://localhost:3001/pizzas')
+    fetchPizzas: (categoryIndex, sortBy) => {
+        const category = categoryIndex === null ? '' : `category=${categoryIndex}`; 
+        return axios.get(`http://localhost:3001/pizzas?${category}`);
     }
 }
 

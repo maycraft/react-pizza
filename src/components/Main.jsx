@@ -23,7 +23,7 @@ const Main = () => {
 
     React.useEffect(() => {
         dispatch( setIsLoadedAC(false) );
-        dispatch(fetchPizzas());
+        dispatch(fetchPizzas(categoryIndex));
     }, [dispatch, categoryIndex]);
 
     const handleSelectCategoty = idx => {
@@ -48,7 +48,7 @@ const Main = () => {
                     {
                         isLoaded
                         ? pizzas.map( item => (<PizzaItem key={ item.id } {...item}/>) )
-                        : Array(12).fill(0).map( (item, idx) => ( <LoaderItem key={idx}/> ) )
+                        : Array(12).fill(0).map( ( _, idx) => ( <LoaderItem key={idx}/> ) )
                     }
                     
                 </div>

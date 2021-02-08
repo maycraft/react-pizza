@@ -14,8 +14,8 @@ export const setIsLoadedAC = ( isLoading ) => {
     }
 }
 
-export const fetchPizzas = () => (dispatch) => {    
-    API.fetchPizzas().then( response => {
+export const fetchPizzas = (categoryIndex) => (dispatch) => { 
+    API.fetchPizzas(categoryIndex).then( response => {
         dispatch( setPizzasAC(response.data) );
         dispatch( setIsLoadedAC(true) );
     })
