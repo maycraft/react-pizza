@@ -4,6 +4,7 @@ import ContentLoader from "react-content-loader";
 const LoaderItem = () => {
     return (
     <ContentLoader
+        className="item"
         speed={2}
         width={260}
         height={430}
