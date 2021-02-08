@@ -14,8 +14,8 @@ export const setIsLoadedAC = ( isLoading ) => {
     }
 }
 
-export const fetchPizzas = (categoryIndex) => (dispatch) => { 
-    API.fetchPizzas(categoryIndex).then( response => {
+export const fetchPizzas = ( categoryIndex, objectSortBy ) => (dispatch) => { 
+    API.fetchPizzas(categoryIndex, objectSortBy).then( response => {
         dispatch( setPizzasAC(response.data) );
         dispatch( setIsLoadedAC(true) );
     })
