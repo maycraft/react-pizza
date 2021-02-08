@@ -5,9 +5,16 @@ import cn from 'classnames';
 const PizzaItem = React.memo(({imageUrl, title, price, sizes, types}) => {
 
     const [activeSize, setActiveSize] = React.useState(0);
+    const [activeType, setActiveType] = React.useState(0);
+
+    const pizzaTypes = ['тонкое', 'традиционное'];
 
     const onSelectItem = idx => {
         setActiveSize(idx);
+    }
+
+    const onSelectType = idx => {
+        setActiveType(idx);
     }
 
     return (
@@ -16,8 +23,16 @@ const PizzaItem = React.memo(({imageUrl, title, price, sizes, types}) => {
             <p className="item__name">{title}</p>
             <div className="item__properties">
                 <div className="item__types">
-                    <div className="item__type active">тонкое</div>
-                    <div className="item__type">традиционное</div>
+                    {/* <div className="item__type active">тонкое</div>
+                    <div className="item__type">традиционное</div> */}
+                    {
+                        types.map( idx => {
+                            return <div 
+                                        className={cn('item__type', {'active': idx === activeType})}
+                                        onClick={() => onSelectType(idx)}    
+                                    >{pizzaTypes[idx]}</div> 
+                        })
+                    }
                 </div>
                 <div className="item__sizes">
                     {
