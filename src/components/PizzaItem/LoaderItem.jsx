@@ -8,8 +8,10 @@ const LoaderItem = () => {
         width={260}
         height={430}
         viewBox="0 0 260 430"
-        backgroundColor="#cdcbcb"
-        foregroundColor="#d8d4d4"
+        // backgroundColor="#cdcbcb"
+        backgroundColor="#DED9D9"
+        // foregroundColor="#d8d4d4"
+        foregroundColor="#BAB5B5"
     >
         <circle cx="118" cy="118" r="118" /> 
         <rect x="0" y="259" rx="3" ry="3" width="260" height="24" /> 
