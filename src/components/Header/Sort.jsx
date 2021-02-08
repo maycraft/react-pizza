@@ -11,10 +11,17 @@ const Sort = React.memo(({items, onSortBy}) => {
         /*Единажды при рендеренге, вешаем событие click на body, для отслеживания нажатия и если это не .sort,
         скрываем popup */
         React.useEffect(() => {
-            document.body.addEventListener('click', (event) => {
+
+            const checkPath = (event) => {
                 //В sortRef.current хранится ссылка на .sort
                 if( !event.path.includes(softRef.current)) setIsVisiblePopup(false);
-            })
+            }
+
+            document.body.addEventListener('click', checkPath)
+
+            return () => {
+                document.body.removeEventListener('click', checkPath);
+            }
         }, []);
 
         const onSelectItem = idx => {
