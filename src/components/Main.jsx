@@ -1,8 +1,9 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Categories, PizzaItem, Sort } from '.'
+import { Categories, Sort } from '.'
 import {fetchPizzas} from '../redux/actions/pizzas';
-import {setCategoryAC, setSortByAC} from '../redux/actions/filters';
+import {setCategoryIndexAC, setSortByAC} from '../redux/actions/filters';
+import {LoaderItem, PizzaItem} from './PizzaItem/';
 
 
 const categories = ['Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые'];
@@ -16,15 +17,15 @@ const Main = () => {
     
     const dispatch = useDispatch();
     const pizzas = useSelector( ({pizzas}) => pizzas.items );
+    const categoryIndex = useSelector( ({filters}) => filters.categoryIndex );
+    const sortBy = useSelector( ({filters}) => filters.sortBy );
 
     React.useEffect(() => {
-        if(pizzas.length === 0){
-            dispatch(fetchPizzas());
-        }
-    }, [dispatch, pizzas.length]);
+        dispatch(fetchPizzas());
+    }, [dispatch, categoryIndex]);
 
-    const handleSelectItem = idx => {
-        dispatch( setCategoryAC(idx) );
+    const handleSelectCategoty = idx => {
+        dispatch( setCategoryIndexAC(idx) );
     }
 
     const handleSortBy = name => {
@@ -35,8 +36,8 @@ const Main = () => {
         <div className="content">
             <div className="container">
                 <nav className="nav">
-                    <Categories items={categories} onSelectItem={handleSelectItem} />
-                    <Sort items={ sortItems } onSortBy={handleSortBy}/>
+                    <Categories items={categories} categoryIndex={categoryIndex}  onSelectCategory={handleSelectCategoty} />
+                    <Sort items={ sortItems } sortBy={sortBy} onSortBy={handleSortBy}/>
                 </nav>
             </div>
             <div className="pizzas">
@@ -46,6 +47,7 @@ const Main = () => {
                         pizzas.map( item => {
                             return <PizzaItem key={ item.id } {...item}/>
                         })
+                        // Array(12).fill(0).map( item => ( <LoaderItem/> ) )
                     }
                     
                 </div>
