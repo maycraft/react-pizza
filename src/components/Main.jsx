@@ -16,10 +16,19 @@ const sortItems = [
 const Main = () => {
     
     const dispatch = useDispatch();
-    const pizzas = useSelector( ({pizzas}) => pizzas.items );
-    const isLoaded = useSelector( ({pizzas}) => pizzas.isLoaded );
-    const categoryIndex = useSelector( ({filters}) => filters.categoryIndex );
-    const indexSortBy = useSelector( ({filters}) => filters.indexSortBy );
+    //Выгребаются каждое свойство отдельно
+    // const pizzas = useSelector( ({pizzas}) => pizzas.items );
+    // const isLoaded = useSelector( ({pizzas}) => pizzas.isLoaded );
+
+    //Одним вызовом забераем несколько свойств из редюсера
+    const {pizzas, isLoaded} = useSelector( ({pizzas}) => ({
+        pizzas: pizzas.items,
+        isLoaded: pizzas.isLoaded
+    }));
+
+    //Альтернативная запись - Передаем диструктрурированный объект filters и его возвращаем, после
+    //чего диструктуризацией забираем нужные свойства из этого объекта
+    const { categoryIndex, indexSortBy } = useSelector( ({filters}) => filters) 
 
     const objectSortBy = sortItems[indexSortBy];
 
