@@ -14,7 +14,9 @@ const Sort = React.memo(({items, indexSortBy, onIndexSortBy}) => {
 
             const checkPath = (event) => {
                 //В sortRef.current хранится ссылка на .sort
-                if( !event.path.includes(softRef.current)) setIsVisiblePopup(false);
+                const path = event.path || ( event.composedPath && event.composedPath() );
+                // if( !event.path.includes(softRef.current)) setIsVisiblePopup(false);
+                if( !path.includes(softRef.current)) setIsVisiblePopup(false);
             }
             document.body.addEventListener('click', checkPath);
 
