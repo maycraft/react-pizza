@@ -4,6 +4,7 @@ import { Categories, Sort } from '.'
 import {fetchPizzas, setIsLoadedAC} from '../redux/actions/pizzas';
 import {setCategoryIndexAC, setIndexSortByAC} from '../redux/actions/filters';
 import {LoaderItem, PizzaItem} from './PizzaItem/';
+import { setAddPizzaAC } from '../redux/actions/cart';
 
 
 const categories = ['Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые'];
@@ -47,6 +48,10 @@ const Main = () => {
         dispatch( setIndexSortByAC(idx) );
     }
 
+    const handleAddPizza = pizzaObj => {
+        dispatch(setAddPizzaAC(pizzaObj));
+    }
+
     return (
         <div className="content">
             <div className="container">
@@ -60,7 +65,7 @@ const Main = () => {
                 <div className="pizza__items">
                     {
                         isLoaded
-                        ? pizzas.map( item => (<PizzaItem key={ item.id } dispatch={dispatch} pizzasToCart={pizzasToCart} {...item}/>) )
+                        ? pizzas.map( item => (<PizzaItem key={ item.id } onAddPizza={handleAddPizza} pizzasToCart={pizzasToCart} {...item}/>) )
                         : Array(12).fill(0).map( ( _, idx) => ( <LoaderItem key={idx} /> ) )
                     }
                     
