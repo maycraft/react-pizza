@@ -8,7 +8,7 @@ const PizzaItem = React.memo(({imageUrl, title, price, sizes, types}) => {
     const availableSizes = [26, 30, 40];
 
     const [activeType, setActiveType] = React.useState(types[0]);
-    const [activeSize, setActiveSize] = React.useState( availableSizes.indexOf(sizes[0]) );
+    const [activeSize, setActiveSize] = React.useState( sizes[0]);
 
     const onSelectItem = idx => {
         setActiveSize(idx);
@@ -27,14 +27,7 @@ const PizzaItem = React.memo(({imageUrl, title, price, sizes, types}) => {
                     {/* <div className="item__type active">тонкое</div>
                     <div className="item__type">традиционное</div> */}
                     {
-                        // types.map( idx => {
-                        //     return <div 
-                        //                 key={idx}
-                        //                 className={cn('item__type', {'active': idx === activeType})}
-                        //                 onClick={() => onSelectType(idx)}    
-                        //             >{pizzaTypes[idx]}</div> 
-                        // })
-                        availableTypes.map( (item, idx) => (
+                        availableTypes.map( (type, idx) => (
                             <div 
                                     key={idx}
                                     className={cn('item__type', {
@@ -42,23 +35,20 @@ const PizzaItem = React.memo(({imageUrl, title, price, sizes, types}) => {
                                         'disabled': !types.includes(idx)
                                     })}
                                     onClick={() => onSelectType(idx)}    
-                                >{item}</div> 
+                                >{type}</div> 
                         ))
                     }
                 </div>
                 <div className="item__sizes">
                     {
-                        // sizes && sizes.map( (item, idx) => ( <div key={idx} 
-                        //                                         className={ cn('item__size', {'active': activeSize === idx })}
-                        //                                         onClick={() => onSelectItem(idx)}>{item} см</div> ))
-                        availableSizes.map( (item, idx) => ( 
+                        availableSizes.map( (size, idx) => ( 
                             <div key={idx} 
                                 className={ cn('item__size', 
                                     {
-                                        'active': activeSize === idx,
-                                        'disabled': !sizes.includes(item)
+                                        'active': activeSize === size,
+                                        'disabled': !sizes.includes(size)
                                     })}
-                                onClick={() => onSelectItem(idx)}>{item} см</div> 
+                                onClick={() => onSelectItem(size)}>{size} см</div> 
                         ))
                     }
                 </div>
