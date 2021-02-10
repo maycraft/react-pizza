@@ -4,12 +4,9 @@ import { Route, Link } from 'react-router-dom';
 import { Button } from '..';
 import logo from '../../assets/img/pizza-logo.svg';
 
-const Header = () => {
+const Header = React.memo(() => {
 
-    const { totalCount, totalPrice } = useSelector(({cart}) => ({
-        totalCount: cart.totalCount,
-        totalPrice: cart.totalPrice
-    }));
+    const { totalCount, totalPrice } = useSelector(({cart}) => cart);
 
     return (
         <header className="header">
@@ -44,6 +41,6 @@ const Header = () => {
             </div>
         </header>
     )
-}
+})
 
 export default Header;
