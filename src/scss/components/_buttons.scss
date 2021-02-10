@@ -8,6 +8,7 @@
     font-size: 1rem;
     line-height: 19px;
     font-weight: bold;
+    color: $white;
     cursor: pointer;
     background: $orange;
     border: 1.5px solid transparent;
@@ -55,11 +56,17 @@
 
     &--outline {
         border-color: $orange;
-        background-color: $white; 
+        background-color: $white;
+        color: $orange;
 
         span {
             color: $orange;
             vertical-align: middle;    
+        }
+
+        &:hover {
+            color: $white;
+            transition: 0.3s color;
         }
     }
 
