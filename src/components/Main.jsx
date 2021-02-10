@@ -27,7 +27,7 @@ const Main = () => {
         isLoaded: pizzas.isLoaded
     }));
 
-    const pizzasToCart = useSelector( ({cart}) => cart.items );
+    const pizzasInCart = useSelector( ({cart}) => cart.items );
 
     //Альтернативная запись - Передаем диструктрурированный объект filters и его возвращаем, после
     //чего диструктуризацией забираем нужные свойства из этого объекта
@@ -65,7 +65,10 @@ const Main = () => {
                 <div className="pizza__items">
                     {
                         isLoaded
-                        ? pizzas.map( item => (<PizzaItem key={ item.id } onAddPizza={handleAddPizza} pizzasToCart={pizzasToCart} {...item}/>) )
+                        ? pizzas.map( objPizza => (<PizzaItem key={ objPizza.id } 
+                                                onAddPizza={handleAddPizza} 
+                                                pizzaCount={pizzasInCart[objPizza.id] && pizzasInCart[objPizza.id].length} 
+                                                {...objPizza}/>) )
                         : Array(12).fill(0).map( ( _, idx) => ( <LoaderItem key={idx} /> ) )
                     }
                     

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { Button } from '..';
 
-const PizzaItem = React.memo(({id, imageUrl, title, price, sizes, types, onAddPizza, pizzasToCart}) => {
+const PizzaItem = React.memo(({id, imageUrl, title, price, sizes, types, onAddPizza, pizzaCount}) => {
 
     const availableTypes = ['тонкое', 'традиционное'];
     const availableSizes = [26, 30, 40];
@@ -78,7 +78,7 @@ const PizzaItem = React.memo(({id, imageUrl, title, price, sizes, types, onAddPi
                         <path d="M5.75998 5.92001L3.83998 5.92001L0.959977 5.92001C0.429817 5.92001 -2.29533e-05 5.49017 -2.29301e-05 4.96001C-2.2907e-05 4.42985 0.429817 4.00001 0.959977 4.00001L3.83998 4L5.75998 4.00001L8.63998 4.00001C9.17014 4.00001 9.59998 4.42985 9.59998 4.96001C9.59998 5.49017 9.17014 5.92001 8.63998 5.92001L5.75998 5.92001Z" fill="#EB5A1E"/>
                     </svg>
                     <span> Добавить</span>
-                    { pizzasToCart[id] && <span className="amount">{pizzasToCart[id].length}</span> }
+                    { pizzaCount && <span className="amount">{pizzaCount}</span> }
                 </Button>
             </div>
         </div>
