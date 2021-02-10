@@ -8,18 +8,18 @@ const PizzaItem = React.memo(({id, imageUrl, title, price, sizes, types, onAddPi
     const availableTypes = ['тонкое', 'традиционное'];
     const availableSizes = [26, 30, 40];
 
+    const idxSize = availableSizes.indexOf(sizes[0]);
+
     const [activeIndexType, setActiveIndexType] = React.useState(types[0]);
-    const [activeSize, setActiveSize] = React.useState( sizes[0]);
+    const [activeIndexSize, setActiveIndexSize] = React.useState(idxSize);
 
     const onSelectItem = idx => {
-        setActiveSize(idx);
+        setActiveIndexSize(idx);
     }
 
     const onSelectType = idx => {
         setActiveIndexType(idx);
     }
-
-    const activeType = availableTypes[activeIndexType];
 
     const handleAddPizzaToCart = () => {
         const pizza = {
@@ -27,8 +27,8 @@ const PizzaItem = React.memo(({id, imageUrl, title, price, sizes, types, onAddPi
             title,
             imageUrl,
             price,
-            activeType,
-            activeSize
+            activeType: availableTypes[activeIndexType],
+            activeSize: availableSizes[activeIndexSize]
         }
         onAddPizza(pizza);
     }
@@ -60,10 +60,10 @@ const PizzaItem = React.memo(({id, imageUrl, title, price, sizes, types, onAddPi
                             <div key={idx} 
                                 className={ cn('item__size', 
                                     {
-                                        'active': activeSize === size,
+                                        'active': activeIndexSize === idx,
                                         'disabled': !sizes.includes(size)
                                     })}
-                                onClick={() => onSelectItem(size)}>{size} см</div> 
+                                onClick={() => onSelectItem(idx)}>{size} см</div> 
                         ))
                     }
                 </div>
