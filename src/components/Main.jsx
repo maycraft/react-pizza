@@ -26,6 +26,8 @@ const Main = () => {
         isLoaded: pizzas.isLoaded
     }));
 
+    const pizzasToCart = useSelector( ({cart}) => cart.items );
+
     //Альтернативная запись - Передаем диструктрурированный объект filters и его возвращаем, после
     //чего диструктуризацией забираем нужные свойства из этого объекта
     const { categoryIndex, indexSortBy } = useSelector( ({filters}) => filters) 
@@ -58,7 +60,7 @@ const Main = () => {
                 <div className="pizza__items">
                     {
                         isLoaded
-                        ? pizzas.map( item => (<PizzaItem key={ item.id } {...item}/>) )
+                        ? pizzas.map( item => (<PizzaItem key={ item.id } dispatch={dispatch} pizzasToCart={pizzasToCart} {...item}/>) )
                         : Array(12).fill(0).map( ( _, idx) => ( <LoaderItem key={idx} /> ) )
                     }
                     
