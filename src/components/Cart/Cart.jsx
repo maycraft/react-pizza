@@ -7,10 +7,11 @@ import { setClearCartAC } from '../../redux/actions/cart';
 
 const Cart = () => {
 
-    const objPizzasInCart = useSelector(({cart}) => cart.items);
-    const { totalCount, totalPrice } = useSelector(({cart}) => cart);
-    const pizzasId = Object.keys(objPizzasInCart);
     const dispatch = useDispatch();
+    const { totalCount, totalPrice } = useSelector(({cart}) => cart);
+
+    const objPizzasInCart = useSelector(({cart}) => cart.items);
+    const pizzasIds = Object.keys(objPizzasInCart);
 
     const handleClearCart = () => {
         if (window.confirm("Вы действительно хотите очистить корзину?")){
@@ -43,9 +44,15 @@ const Cart = () => {
                 </div>
                 <div className="cart__items">
                     {
-                        pizzasId.map( key => {
-                            const pizza = objPizzasInCart[key][0];
-                            return <CartItem key={pizza.id} {...pizza}/>
+                        pizzasIds.map( key => {
+                            const addedPizzas = objPizzasInCart[key];
+                            const pizza = addedPizzas[0];
+                            const totalPrice = pizza.price * addedPizzas.length;
+
+                            return <CartItem key={pizza.id} 
+                                            totalCount={addedPizzas.length}
+                                            totalPrice={totalPrice}
+                                            {...pizza}/>
                         })
                     }
                 </div>
