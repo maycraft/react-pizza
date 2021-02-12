@@ -7,7 +7,7 @@ const initialState = {
 const cart = ( state = initialState, action ) => {
     
     switch (action.type) {
-        case 'SET_ADD_PIZZA':
+        case 'SET_ADD_PIZZA': {
             const newItem = {
                 ...state.items,
                 [action.payload.id]: (state.items[action.payload.id]) 
@@ -23,7 +23,9 @@ const cart = ( state = initialState, action ) => {
                 totalCount: allPizzas.length,
                 totalPrice 
             }
-
+        }
+        case 'CLEAR_CART': 
+            return { items: {}, totalCount: 0, totalPrice: 0 }
         default:
             return state;
     }
