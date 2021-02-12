@@ -5,3 +5,4 @@ export {default as Main} from './Main';
 export {default as Cart} from './Cart/Cart';
 export {default as Button} from './Button';
 export {default as CartItem} from './Cart/CartItem';
+export {default as CartEmpty} from './Cart/CartEmpty';
