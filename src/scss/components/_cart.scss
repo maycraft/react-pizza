@@ -65,8 +65,10 @@
 
     &__product {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: center;
+        flex-basis: 45%;
+
 
         &--name {
             font-size: 1.4rem;
