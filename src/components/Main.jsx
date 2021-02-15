@@ -38,8 +38,7 @@ const Main = () => {
     React.useEffect(() => {
         dispatch( setIsLoadedAC(false) );
         dispatch(fetchPizzas(categoryIndex, objectSortBy));
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [categoryIndex, indexSortBy, objectSortBy]);
+    }, [dispatch, categoryIndex, indexSortBy, objectSortBy]);
 
     const handleSelectCategoty = idx => {
         dispatch( setCategoryIndexAC(idx) );
