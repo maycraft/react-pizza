@@ -87,12 +87,16 @@ const PizzaItem = React.memo(({id, imageUrl, title, price, sizes, types, onAddPi
 
 );
 
-PizzaItem.prototype = {
-    imageUrl: PropTypes.imageUrl,
-    name: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired,
-    sizes: PropTypes.arrayOf(PropTypes.string),
-    types: PropTypes.arrayOf(PropTypes.number)
+PizzaItem.propTypes = {
+    id: PropTypes.number.isRequired,
+    imageUrl: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    sizes: PropTypes.arrayOf(PropTypes.number),
+    types: PropTypes.arrayOf(PropTypes.number),
+    onAddPizza: PropTypes.func.isRequired,
+    pizzaCount: PropTypes.number
 }
+
 
 export default PizzaItem;
