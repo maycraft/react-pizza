@@ -39,7 +39,7 @@ const CartItem = ({id, title, imageUrl, activeSize, activeType, totalCount, tota
     )
 }
 
-CartItem.prototype = {
+CartItem.propTypes = {
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     imageUrl: PropTypes.string.isRequired,
