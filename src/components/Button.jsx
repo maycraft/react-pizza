@@ -14,9 +14,10 @@ const Button = React.memo(({ outline, className, children, onClick }) => {
     )
 })
 
-Button.prototype = {
+Button.propTypes = {
     outline: PropTypes.bool,
-    onAddPizzaToCart: PropTypes.func
+    className: PropTypes.string,
+    onClick: PropTypes.func,
 }
 
 export default Button;
