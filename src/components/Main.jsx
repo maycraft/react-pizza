@@ -1,10 +1,10 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Categories, Sort } from '.'
-import {fetchPizzas, setIsLoadedAC} from '../redux/actions/pizzas';
 import {setCategoryIndexAC, setIndexSortByAC} from '../redux/actions/filters';
 import {LoaderItem, PizzaItem} from './PizzaItem/';
 import { setAddPizzaAC } from '../redux/actions/cart';
+import { fetchPizzasByCategory, setIsLoaded } from '../redux/features/pizzas/pizzasSlice';
 
 
 const categories = ['Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые'];
@@ -36,9 +36,9 @@ const Main = () => {
     const objectSortBy = sortItems[indexSortBy];
 
     React.useEffect(() => {
-        dispatch( setIsLoadedAC(false) );
-        dispatch(fetchPizzas(categoryIndex, objectSortBy));
-    }, [dispatch, categoryIndex, indexSortBy, objectSortBy]);
+        dispatch( setIsLoaded(false) );
+        dispatch(fetchPizzasByCategory( {categoryIndex, objectSortBy} ));
+    }, [dispatch, categoryIndex, objectSortBy]);
 
     const handleSelectCategoty = idx => {
         dispatch( setCategoryIndexAC(idx) );
