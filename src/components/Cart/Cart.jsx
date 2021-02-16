@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { Button, CartEmpty, CartItem } from '..';
-import { clearCart } from '../../redux/features/cart/cartSlice';
+import { clearCart } from '../../redux/slices/cartSlice';
 
 const Cart = () => {
 

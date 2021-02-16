@@ -44,13 +44,13 @@ const PizzaItem = React.memo(({id, imageUrl, title, price, sizes, types, onAddPi
                     {
                         availableTypes.map( (type, idx) => (
                             <div 
-                                    key={idx}
-                                    className={cn('item__type', {
-                                        'active': idx === activeIndexType,
-                                        'disabled': !types.includes(idx)
-                                    })}
-                                    onClick={() => onSelectType(idx)}    
-                                >{type}</div> 
+                                key={idx}
+                                className={cn('item__type', {
+                                    'active': idx === activeIndexType,
+                                    'disabled': !types.includes(idx)
+                                })}
+                                onClick={() => onSelectType(idx)}    
+                            >{type}</div> 
                         ))
                     }
                 </div>

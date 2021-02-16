@@ -3,11 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { Categories, Sort } from '.'
 import {LoaderItem, PizzaItem} from './PizzaItem/';
-import { fetchPizzasByCategory, setIsLoaded } from '../redux/features/pizzas/pizzasSlice';
-import { setCategoryIndex, setSortByIndex } from '../redux/features/filters/filtersSlice';
-import { addPizza } from '../redux/features/cart/cartSlice';
-// import { setAddPizzaAC } from '../redux/actions/cart';
-
+import { fetchPizzasByCategory, setIsLoaded } from '../redux/slices/pizzasSlice';
+import { setCategoryIndex, setSortByIndex } from '../redux/slices/filtersSlice';
+import { addPizza } from '../redux/slices/cartSlice';
 
 const categories = ['Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые'];
 const sortItems = [
@@ -51,7 +49,6 @@ const Main = () => {
     }
 
     const handleAddPizza = pizzaObj => {
-        // dispatch(setAddPizzaAC(pizzaObj));
         dispatch(addPizza(pizzaObj));
     }
 

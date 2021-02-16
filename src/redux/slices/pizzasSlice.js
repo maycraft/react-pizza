@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import API from '../../dal/api';
+import API from '../dal/api';
 
 export const fetchPizzasByCategory = createAsyncThunk(
     'pizzas/fetchAllPizzas',
