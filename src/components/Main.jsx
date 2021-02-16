@@ -3,9 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { Categories, Sort } from '.'
 import {LoaderItem, PizzaItem} from './PizzaItem/';
-import { setAddPizzaAC } from '../redux/actions/cart';
 import { fetchPizzasByCategory, setIsLoaded } from '../redux/features/pizzas/pizzasSlice';
 import { setCategoryIndex, setSortByIndex } from '../redux/features/filters/filtersSlice';
+import { addPizza } from '../redux/features/cart/cartSlice';
+// import { setAddPizzaAC } from '../redux/actions/cart';
 
 
 const categories = ['Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые'];
@@ -50,7 +51,8 @@ const Main = () => {
     }
 
     const handleAddPizza = pizzaObj => {
-        dispatch(setAddPizzaAC(pizzaObj));
+        // dispatch(setAddPizzaAC(pizzaObj));
+        dispatch(addPizza(pizzaObj));
     }
 
     return (
