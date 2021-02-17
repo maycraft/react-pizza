@@ -49,7 +49,9 @@ CartItem.propTypes = {
     activeType: PropTypes.string.isRequired,
     totalCount: PropTypes.number.isRequired,
     totalPrice: PropTypes.number.isRequired,
-    onDeletePizza: PropTypes.func.isRequired
+    onDeletePizza: PropTypes.func.isRequired,
+    onEncreasePizza: PropTypes.func.isRequired,
+    onDecreasePizza: PropTypes.func.isRequired
 }
 
 export default CartItem;
