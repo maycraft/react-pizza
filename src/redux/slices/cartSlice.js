@@ -27,17 +27,29 @@ const cartSlice = createSlice({
             state.totalPrice = 0;
         },
         deletePizza( state, action ){
-            console.log(action);
-            delete state.items[action.payload.idx];
+            delete state.items[action.payload.id];
             const allPizzas = getCombineArr(state.items);
             state.totalCount = allPizzas.length;
             state.totalPrice = getTotalPrice(allPizzas);
         },
-        // encrease( state, action ){
-        //     const item = state.items[action.payload];
-        // }
+        encreasePizzaItem( state, action ){
+            const item = state.items[action.payload.id];
+            item.push(item[0]);
+            const allPizzas = getCombineArr(state.items);
+            state.totalCount = allPizzas.length;
+            state.totalPrice = getTotalPrice(allPizzas);
+        },
+        decreasePizzaItem( state, action ){
+            const item = state.items[action.payload.id];
+            if(item.length > 1){
+                item.pop();
+                const allPizzas = getCombineArr(state.items);
+                state.totalCount = allPizzas.length;
+                state.totalPrice = getTotalPrice(allPizzas);
+            }
+        }
     }
 })
 
-export const { addPizza, clearCart, deletePizza } = cartSlice.actions;
+export const { addPizza, clearCart, deletePizza, encreasePizzaItem, decreasePizzaItem } = cartSlice.actions;
 export default cartSlice.reducer;
