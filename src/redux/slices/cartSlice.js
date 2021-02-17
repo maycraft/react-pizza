@@ -1,7 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const getCombineArr = ( obj ) => [].concat.apply([], Object.values(obj));
-const getTotalPrice = ( arr ) => arr.reduce( (sum, item) => sum + item.price, 0 ); 
+const getTotalPrice = ( obj ) => {
+    const arr = getCombineArr(obj);
+    return arr.reduce( (sum, item) => sum + item.price, 0 ); 
+} 
 
 const cartSlice = createSlice({
     name: 'cart',
@@ -28,24 +31,21 @@ const cartSlice = createSlice({
         },
         deletePizza( state, action ){
             delete state.items[action.payload.id];
-            const allPizzas = getCombineArr(state.items);
-            state.totalCount = allPizzas.length;
-            state.totalPrice = getTotalPrice(allPizzas);
+            state.totalCount = getCombineArr(state.items).length;
+            state.totalPrice = getTotalPrice(state.items);
         },
         encreasePizzaItem( state, action ){
             const item = state.items[action.payload.id];
             item.push(item[0]);
-            const allPizzas = getCombineArr(state.items);
-            state.totalCount = allPizzas.length;
-            state.totalPrice = getTotalPrice(allPizzas);
+            state.totalCount = getCombineArr(state.items).length;
+            state.totalPrice = getTotalPrice(state.items);
         },
         decreasePizzaItem( state, action ){
             const item = state.items[action.payload.id];
             if(item.length > 1){
                 item.pop();
-                const allPizzas = getCombineArr(state.items);
-                state.totalCount = allPizzas.length;
-                state.totalPrice = getTotalPrice(allPizzas);
+                state.totalCount = getCombineArr(state.items).length;
+                state.totalPrice = getTotalPrice(state.items);
             }
         }
     }
