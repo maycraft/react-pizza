@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { Button, CartEmpty, CartItem } from '..';
-import { clearCart } from '../../redux/slices/cartSlice';
+import { clearCart, deletePizza } from '../../redux/slices/cartSlice';
 
 const Cart = () => {
 
@@ -18,6 +18,12 @@ const Cart = () => {
             dispatch( clearCart() );
         }
     }
+
+    const handleDeletePizza = (idx) => {
+        dispatch( deletePizza(idx) );
+    }
+
+    const getTotalPrice = (price, pizzasCount) => price * pizzasCount;
 
     return (
 
@@ -47,11 +53,12 @@ const Cart = () => {
                         pizzasIds.map( key => {
                             const addedPizzas = objPizzasInCart[key];
                             const pizza = addedPizzas[0];
-                            const totalPrice = pizza.price * addedPizzas.length;
+                            const pizzasCount = addedPizzas.length;
 
                             return <CartItem key={pizza.id} 
-                                            totalCount={addedPizzas.length}
-                                            totalPrice={totalPrice}
+                                            totalCount={pizzasCount}
+                                            totalPrice={getTotalPrice(pizza.price, pizzasCount)}
+                                            onDeletePizza={handleDeletePizza}
                                             {...pizza}/>
                         })
                     }
