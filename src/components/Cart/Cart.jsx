@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { Button, CartEmpty, CartItem } from '..';
-import { clearCart, deletePizza } from '../../redux/slices/cartSlice';
+import { clearCart, decreasePizzaItem, deletePizza, encreasePizzaItem } from '../../redux/slices/cartSlice';
 
 const Cart = () => {
 
@@ -19,8 +19,16 @@ const Cart = () => {
         }
     }
 
-    const handleDeletePizza = (idx) => {
-        dispatch( deletePizza({idx}) );
+    const handleDeletePizza = (id) => {
+        dispatch( deletePizza({id}) );
+    }
+
+    const handleEncreasePizza = (id) => {
+        dispatch( encreasePizzaItem({id}) );
+    }
+
+    const handleDecreasePizza = (id) => {
+        dispatch( decreasePizzaItem({id}) );
     }
 
     const getTotalPrice = (price, pizzasCount) => price * pizzasCount;
@@ -59,6 +67,8 @@ const Cart = () => {
                                             totalCount={pizzasCount}
                                             totalPrice={getTotalPrice(pizza.price, pizzasCount)}
                                             onDeletePizza={handleDeletePizza}
+                                            onEncreasePizza={handleEncreasePizza}
+                                            onDecreasePizza={handleDecreasePizza}
                                             {...pizza}/>
                         })
                     }
