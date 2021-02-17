@@ -20,7 +20,7 @@ const Cart = () => {
     }
 
     const handleDeletePizza = (idx) => {
-        dispatch( deletePizza(idx) );
+        dispatch( deletePizza({idx}) );
     }
 
     const getTotalPrice = (price, pizzasCount) => price * pizzasCount;

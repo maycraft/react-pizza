@@ -36,16 +36,16 @@ const Main = () => {
     const objectSortBy = sortItems[indexSortBy];
 
     React.useEffect(() => {
-        dispatch( setIsLoaded(false) );
+        dispatch( setIsLoaded({boolean:false}) );
         dispatch(fetchPizzasByCategory( {categoryIndex, objectSortBy} ));
     }, [dispatch, categoryIndex, objectSortBy]);
 
     const handleSelectCategoty = idx => {
-        dispatch( setCategoryIndex(idx) );
+        dispatch( setCategoryIndex({idx}) );
     }
 
     const handleIndexSortBy = idx => {
-        dispatch( setSortByIndex(idx) );
+        dispatch( setSortByIndex({idx}) );
     }
 
     const handleAddPizza = pizzaObj => {

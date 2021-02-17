@@ -27,11 +27,15 @@ const cartSlice = createSlice({
             state.totalPrice = 0;
         },
         deletePizza( state, action ){
-            delete state.items[action.payload];
+            console.log(action);
+            delete state.items[action.payload.idx];
             const allPizzas = getCombineArr(state.items);
             state.totalCount = allPizzas.length;
             state.totalPrice = getTotalPrice(allPizzas);
-        }
+        },
+        // encrease( state, action ){
+        //     const item = state.items[action.payload];
+        // }
     }
 })
 

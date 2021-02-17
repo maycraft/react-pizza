@@ -8,10 +8,10 @@ const filtersSlice = createSlice({
     },
     reducers: {
         setCategoryIndex( state, action ) {
-            state.categoryIndex = action.payload;
+            state.categoryIndex = action.payload.idx;
         },
         setSortByIndex( state, action ) {
-            state.indexSortBy = action.payload
+            state.indexSortBy = action.payload.idx;
         }
     }
 })

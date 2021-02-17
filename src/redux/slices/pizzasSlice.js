@@ -5,7 +5,7 @@ export const fetchPizzasByCategory = createAsyncThunk(
     'pizzas/fetchAllPizzas',
     async (objArgs, thunkAPI) => {
         const response = await API.fetchPizzas(objArgs);
-        thunkAPI.dispatch(setIsLoaded(true));
+        thunkAPI.dispatch(setIsLoaded({boolean:true}));
         return response.data;
     }
 )
@@ -18,7 +18,7 @@ const pizzasSlice = createSlice({
     },
     reducers: {
         setIsLoaded( state, action ) {
-            state.isLoaded = action.payload;
+            state.isLoaded = action.payload.boolean;
         }
     },
     extraReducers: {
