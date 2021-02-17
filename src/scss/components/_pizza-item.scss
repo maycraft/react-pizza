@@ -22,7 +22,7 @@
     text-align: center;
     color: $black;
     flex-basis: 22%;
-    min-width: 280px;
+    min-width: 241px;
     // margin-bottom: 4rem;
     margin-bottom: 4.7vmax;
     margin-right: 2.6vmax;
@@ -66,6 +66,7 @@
     
     &__sizes {
         display: flex;
+        flex-wrap: nowrap;
         justify-content: space-between;
     }
     
@@ -75,9 +76,10 @@
         font-size: 14px;
         line-height: 17px;
         color: #2C2C2C;
-        padding: 10px 20px;
-        width: 32%;
-        flex-grow: 1;
+        // padding: 10px 20px;
+        padding: 4% 8%;
+        // width: 32%;
+        // flex-grow: 1;
         cursor: pointer;
         
         &.active {
@@ -112,21 +114,51 @@
     }
 }
 
-@media screen and (max-width: 1399px) {
+@media screen and (max-width: 1190px) {
     .item {
-        flex-basis: 22%;
+        flex-basis: 29.33%;
+        min-width: 255px;
     }
     .item {
         &:nth-child(4n) {
             margin-right: 2.5vmax;
         }
-    
+        
         &:nth-child(3n) {
             margin-right: 0;
         }
     }
-}
-@media screen and (max-width: 1190px) {
+    
+    @media screen and (max-width: 1019px) {
+
+        .pizza__items {
+            justify-content: space-between;
+        }
+        .item {
+            flex-basis: 44%;
+            min-width: 280px;
+        }
+        .item {
+            &:nth-child(3n) {
+                margin-right: 2.5vmax;
+            }
+            
+            &:nth-child(2n) {
+                margin-right: 0;
+            }
+        }
+    }
+
+    @media (max-width: 767px) {
+        .pizza__items {
+            justify-content: center;
+        }
+        .item {
+            &:nth-child(2n) {
+                margin-right: 0;
+            }
+        }
+    }
 
 }
 
